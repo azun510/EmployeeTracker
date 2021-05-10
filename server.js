@@ -1,7 +1,7 @@
 // dependencies
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
-const cTable = require('console.table');
+require('console.table');
 
 // connection
 const connection = mysql.createConnection({
@@ -67,7 +67,7 @@ const startApp = () => {
     })
 }
 
-// view departments
+// departments
 const viewDept = () => {
     connection.query("SELECT * FROM department;", 
     function(err, res) {
@@ -77,7 +77,7 @@ const viewDept = () => {
     })
   }
 
-// view roles
+// roles
 const viewRole = () => {
     connection.query("SELECT * FROM role", 
     function(err, res) {
@@ -87,7 +87,7 @@ const viewRole = () => {
     })
   }
 
-// view all employees
+// employees
 const viewEmp = () => {
     connection.query("SELECT employee.id, employee.first_name, employee.last_name, role.title, role.salary, department.name, CONCAT(emp.first_name, ' ' ,emp.last_name) AS Manager FROM employee INNER JOIN role ON role.id = employee.role_id INNER JOIN department ON department.id = role.department_id LEFT JOIN employee emp ON employee.manager_id = emp.id;", 
     function(err, res) {
