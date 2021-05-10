@@ -1,4 +1,4 @@
-# employeeTracker
+# SQL: Employee Tracker
 
 ## Description
 The challenge this week is to build a command-line application to manage a company's employee database, using Node.js, Inquirer, and MySQL.
